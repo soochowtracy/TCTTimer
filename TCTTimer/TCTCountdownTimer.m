@@ -151,6 +151,11 @@ static inline double TCT_TimeIntervalFromAccuracy(TCTTimerAccuracy accuracy){
     _delegateHas.didFinishCountWithTimer = [_delegate respondsToSelector:@selector(didFinishCountWithTimer:)];
 }
 
+- (void)setTimeInterval:(NSTimeInterval)timeInterval{
+    _timeInterval = timeInterval;
+    [self reset];
+}
+
 - (NSDate *)referenceDate{
     if (!_referenceDate) {
         _referenceDate = [NSDate dateWithTimeIntervalSince1970:0];

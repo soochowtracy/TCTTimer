@@ -19,10 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    [self timer];
 }
 
 - (IBAction)didPressStart:(id)sender {
+    self.timer.timeInterval = 10;
     [self.timer start];
 }
 - (IBAction)didPressReset:(id)sender {
@@ -40,6 +41,7 @@
     if (!_timer) {
         _timer = [TCTCountdownTimer countdownTimerWithAccuracy:TCTTimerAccuracyHighest timeInterval:5];
         _timer.delegate = self;
+        [self.timer start];
     }
     return _timer;
 }
